@@ -1,0 +1,17 @@
+[Unit]
+Description=Klijenti: Telegram bot za pronalaženje klijenata (Faza 1)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=klijenti
+WorkingDirectory=/home/klijenti/app
+ExecStart=/home/klijenti/app/.venv/bin/python bot.py
+Restart=always
+RestartSec=10
+# Chromium i provere ne smeju da uguše asistenta koji radi na istom serveru
+MemoryMax=3G
+Nice=5
+
+[Install]
+WantedBy=multi-user.target

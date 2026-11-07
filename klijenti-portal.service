@@ -1,0 +1,16 @@
+[Unit]
+Description=Klijenti: portal bot za klijente (izveštaji sa limitom)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=klijenti
+WorkingDirectory=/home/klijenti/app
+ExecStart=/home/klijenti/app/.venv/bin/python portal_bot.py
+Restart=always
+RestartSec=10
+MemoryMax=3G
+Nice=5
+
+[Install]
+WantedBy=multi-user.target
